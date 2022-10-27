@@ -1,0 +1,24 @@
+<h3>Two-way binding</h3>
+<input type="text"[(ngModel)]="Values" placeholder="Enter value"/><br>
+<input type="button" value="add" (click)="CallSomeLogic()"/><br>
+value:{{Values}}<br><br>
+<h3>Built-in pipe</h3>
+uppercase:{{Values | uppercase}}<br>
+lowercase:{{Values | lowercase}}<br>
+slice:{{Values | slice:1:-2}}<br>
+<h3>Custom pipe-sort</h3>
+<select [(ngModel)]="sortoption">
+  <option value='asc'>Ascending</option>
+  <option value='desc'>descending</option></select><br><br>
+  <table border="3">
+    <thead>
+      <tr>
+        <th>values</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let val of someValues | sort: sortoption">
+        <td>{{ val }}</td>
+      </tr>
+    </tbody>
+  </table>
